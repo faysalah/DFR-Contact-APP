@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
+        <div class="card border-light mb-3">
+            <h4 class="text-center">New Contact</h3>
+            <div class="card-body">
+                <form ng-submit="submit()" ng-controller="addContactController" name="myForm">
+                    <div class="form-group">
+                        <label for="title"><i class="fas fa-user"></i> Name</label>
+                        <input type="text" name="name" class="form-control" ng-model="contact.name" required>
+                        <div class="alert alert-danger" role="alert" ng-show="myForm.name.$touched && !myForm.name.$valid">
+                            Name field is requied!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">
+                            <i class="fas fa-phone-square"></i> Mobile</label>
+                        <input type="text" class="form-control" name="mobile" ng-model="contact.mobile" only-number-input required>
+                        <div class="alert alert-danger" role="alert" ng-show="myForm.mobile.$touched && !myForm.mobile.$valid">
+                                Mobile field is requied!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">
+                            <i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" class="form-control" name="email" ng-model="contact.email" required novalidate> 
+                        <div class="alert alert-warning" role="alert" ng-show="myForm.email.$error.email">
+                                Email address not valid!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">
+                            <i class="fas fa-location-arrow"></i> Address</label>
+                        <textarea class="form-control" ng-model="contact.address" id="content" rows="3"></textarea>
+                    </div>
+                    <a class="btn btn-secondary" ui-sref="contact"><i class="fas fa-times"></i> Cancel</a>
+                    <button type="submit" ng-disabled="myForm.name.$invalid || myForm.mobile.$invalid || myForm.email.$error.email" class="btn btn-secondary"><i class="fas fa-save"> </i> Add</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
+    <div class="card border-light mb-3">
+      <h4 class="text-center">User Registraton</h3>
+      <div class="card-body">
+        <form ng-submit="submit()" ng-controller="registerController">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" ng-model="registerModel.username" placeholder="Give an unique user name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" ng-model="registerModel.email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" ng-model="registerModel.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" ng-model="registerModel.cpassword" placeholder="Retype Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
