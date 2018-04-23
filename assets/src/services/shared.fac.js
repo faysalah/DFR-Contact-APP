@@ -3,5 +3,6 @@ angular.module('contactapp').factory('sharedService', [ function () {
     _service.isAuthenticated;
     _service.getUserId;
     _service.getUsername;
+    _service.contactModel;
     return _service;
 }])

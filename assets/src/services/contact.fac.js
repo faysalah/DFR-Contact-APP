@@ -7,7 +7,7 @@ angular.module('contactapp').factory('contactService', ['$http', '$log','sharedS
     _service.getAllContact = function (cb) {
         $http({
             method: 'GET',
-            url: base_url + 'api/v1/contact'
+            url: 'api/v1/contact'
         }).then(function (res) {
             // $log.log(res.data);
             cb(res.data)
@@ -20,7 +20,7 @@ angular.module('contactapp').factory('contactService', ['$http', '$log','sharedS
     _service.getContactById = function (id, cb) {
         $http({
             method: 'GET',
-            url: base_url + 'api/v1/contact/'+id+'/'
+            url: 'api/v1/contact/'+id+'/'
         }).then(function (res) {
             // $log.log(res.data);
             cb(res.data)
@@ -34,7 +34,7 @@ angular.module('contactapp').factory('contactService', ['$http', '$log','sharedS
     _service.addContact = function (fromdata ,cb) {
         $http({
             method: 'POST',
-            url: base_url + 'api/v1/contact',
+            url: 'api/v1/contact',
             data: fromdata
         }).then(function (res) {
             cb(res.data)
@@ -47,7 +47,7 @@ angular.module('contactapp').factory('contactService', ['$http', '$log','sharedS
     _service.updateContact = function (id, fromdata, cb) {
         $http({
             method:'PUT',
-            url: base_url + 'api/v1/contact/'+id+'/',
+            url: 'api/v1/contact/'+id+'/',
             data: fromdata
         }).then(function (res) {
             // $log.log(res.data);
@@ -61,7 +61,7 @@ angular.module('contactapp').factory('contactService', ['$http', '$log','sharedS
     _service.deleteContact = function (id, cb) {
         $http({
             method:'DELETE',
-            url: base_url + 'api/v1/contact/'+id+'/'
+            url: 'api/v1/contact/'+id+'/'
         }).then(function (res) {
             cb(res.data)
         },

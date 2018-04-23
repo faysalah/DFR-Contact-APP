@@ -28,8 +28,8 @@ angular.module('contactapp').controller('loginController', function ($scope, $st
     $scope.submit = function() {
         authService.login($scope.loginModel, function (result) {
             localStorage.setItem('token',result.token)
+            $state.transitionTo('contact');
         });
-        $state.transitionTo('contact');
     };
 });
 

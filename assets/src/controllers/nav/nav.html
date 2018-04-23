@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" ui-sref="contact"> Contacts <i class="fas fa-users"></i></a>
+                    <a class="nav-link" ui-sref="contact.contacts"> Contacts <i class="fas fa-users"></i></a>
                 </li>
                 <li  class="nav-item" ng-if="isAuthenticated()">
-                    <a class="nav-link" ui-sref="new">Add New <i class="fas fa-plus"></i></a>
+                    <a class="nav-link" ui-sref="contact.new"> Add New <i class="fas fa-plus"></i></a>
                 </li>
             </ul>
             <div class="pull-right">
@@ -19,7 +19,7 @@
                     <a class="nav-link" ui-sref="register">Register <i class="fas fa-user-plus"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="login">Login <i class="fas fa-sign-in-alt"></i></a>
+                    <a class="nav-link" ui-sref="login"> Login <i class="fas fa-sign-in-alt"></i></a>
                 </li>
             </ul>
 
@@ -32,9 +32,5 @@
                 </li>
             </ul>
         </div>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
     </div>
   </nav>

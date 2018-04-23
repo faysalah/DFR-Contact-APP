@@ -16,7 +16,7 @@ angular.module('contactapp').controller('contactController', function ($scope, $
         contactService.updateContact($stateParams.id, $scope.contact, function (result) {
             $scope.contact = result;
         });
-        $state.transitionTo('detail', {id : $stateParams.id});
+        $state.transitionTo('contact.detail', {id : $stateParams.id});
     };
     $scope.onDelete= function() {
         if(!confirm('Are you sure you want to delete this contact?')) return false;
@@ -24,13 +24,13 @@ angular.module('contactapp').controller('contactController', function ($scope, $
             $scope.contact = result;                        
         });
     
-        $state.transitionTo("contact");
+        $state.transitionTo("contact.contacts");
     }
     
     $scope.isAuthenticated = sharedService.isAuthenticated;
 });
 
-angular.module('contactapp').controller('addContactController', function ($scope, $stateParams, $state, contactService, sharedService) {
+angular.module('contactapp').controller('addContactController', function ($scope, $state, sharedService) {
     $scope.contact = {
         name:'',
         mobile:'',
@@ -39,10 +39,20 @@ angular.module('contactapp').controller('addContactController', function ($scope
         added_by:  sharedService.getUserId()
     };
 
-    $scope.submit = function() {
-        contactService.addContact($scope.contact, function (result) {
-            $scope.contact = result;                            
+    $scope.add = function() {
+        sharedService.contactModel =  $scope.contact;
+        console.log($scope.contact);
+        $state.transitionTo("contact.new.save");
+    };
+});
+
+
+angular.module('contactapp').controller('saveContactController', function ($scope, $stateParams, $state, contactService, sharedService) {
+    $scope.contact = sharedService.contactModel;
+    $scope.save = function() {
+        contactService.addContact(sharedService.contactModel, function (result) {
+            console.log(result);                            
         });
-        $state.transitionTo("contact");
+        $state.transitionTo("contact.contacts");
     };
 });

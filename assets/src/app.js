@@ -1,6 +1,6 @@
 angular.module('contactapp', ['ui.router'])
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/contact');
+        $urlRouterProvider.otherwise('/contact/');
         $stateProvider
             .state('register', {
                 url: '/register',
@@ -12,19 +12,29 @@ angular.module('contactapp', ['ui.router'])
             })
             .state('contact', {
                 url: '/contact',
+                template: '<ui-view></ui-view>',
+                controller:'contactListController',
+            })
+            .state('contact.contacts', {
+                url: '/',
                 templateUrl: 'static/src/controllers/contact/contacts.html',
                 controller:'contactListController',
             })
-            .state('new', {
+            .state('contact.new', {
                 url: '/new',
                 templateUrl: 'static/src/controllers/contact/new.html'
             })
-            .state('detail', {
+            .state('contact.new.save', {
+                url: '/save',
+                templateUrl: 'static/src/controllers/contact/save.html',
+                controller: 'saveContactController'                
+            })
+            .state('contact.detail', {
                 url: '/detail/:id',
                 templateUrl:'static/src/controllers/contact/detail.html' ,
                 controller: 'contactController'
             })
-            .state('edit', {
+            .state('contact.edit', {
                 url: '/edit/:id',
                 templateUrl: 'static/src/controllers/contact/edit.html',
                 controller: 'contactController'

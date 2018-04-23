@@ -1,9 +1,5 @@
 """
-WSGI config for Task_DRF project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
+For more information 
 https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 """
 

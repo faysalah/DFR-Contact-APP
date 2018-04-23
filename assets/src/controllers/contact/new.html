@@ -32,11 +32,16 @@
                             <i class="fas fa-location-arrow"></i> Address</label>
                         <textarea class="form-control" ng-model="contact.address" id="content" rows="3"></textarea>
                     </div>
-                    <a class="btn btn-secondary" ui-sref="contact"><i class="fas fa-times"></i> Cancel</a>
-                    <button type="submit" ng-disabled="myForm.name.$invalid || myForm.mobile.$invalid || myForm.email.$error.email" class="btn btn-secondary"><i class="fas fa-save"> </i> Add</button>
+                    <a class="btn btn-secondary" ui-sref="contact.contacts"><i class="fas fa-times"></i> Cancel</a>
 
+                    <button class="btn btn-secondary" 
+                    ng-disabled="myForm.name.$invalid || myForm.mobile.$invalid || myForm.email.$error.email" 
+                    class="btn btn-secondary"ng-click="add()">
+                    <i class="fas fa-save"></i> Add
+                    </button>                
                 </form>
             </div>
         </div>
     </div>
 </div>
+<ui-view></ui-view>
