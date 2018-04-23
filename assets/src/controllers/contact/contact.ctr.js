@@ -9,7 +9,7 @@ angular.module('contactapp').controller('contactController', function ($scope, $
     $scope.contact = {};
     
     contactService.getContactById($stateParams.id, function (result) {
-        $scope.contact = result;                    
+        $scope.contact = result;                
     });
 
     $scope.submit = function() {
@@ -18,6 +18,7 @@ angular.module('contactapp').controller('contactController', function ($scope, $
         });
         $state.transitionTo('contact.detail', {id : $stateParams.id});
     };
+
     $scope.onDelete= function() {
         if(!confirm('Are you sure you want to delete this contact?')) return false;
         contactService.deleteContact($stateParams.id, function (result) {

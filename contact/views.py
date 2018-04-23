@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'index.html')
 
 class ContactListView(APIView):
-    permission_classes = []
+    permission_classes = []        
     def get(self, request):
         contacts = models.Contact.objects.all()
         serializer = serializers.ContactSerializer(contacts,context={'request': request},many=True)
@@ -24,7 +24,7 @@ class ContactListView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ContactRudView(APIView):
-    permission_classes = [] 
+    permission_classes = []
     def get(self, request, pk):
         try:
             contact = models.Contact.objects.get(pk=pk)
