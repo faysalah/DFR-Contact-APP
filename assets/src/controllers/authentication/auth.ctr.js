@@ -6,7 +6,6 @@ angular.module('contactapp').controller('registerController', function ($scope, 
         cpassword:''
     };
     $scope.submit = function() {
-        console.log($scope.registerModel);
         if($scope.registerModel.password != $scope.registerModel.cpassword ){
             alert("Password not matched");
             return false;

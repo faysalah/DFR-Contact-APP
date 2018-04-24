@@ -42,7 +42,6 @@ angular.module('contactapp').controller('addContactController', function ($scope
 
     $scope.add = function() {
         sharedService.contactModel =  $scope.contact;
-        console.log($scope.contact);
         $state.transitionTo("contact.new.save");
     };
 });
@@ -51,8 +50,7 @@ angular.module('contactapp').controller('addContactController', function ($scope
 angular.module('contactapp').controller('saveContactController', function ($scope, $stateParams, $state, contactService, sharedService) {
     $scope.contact = sharedService.contactModel;
     $scope.save = function() {
-        contactService.addContact(sharedService.contactModel, function (result) {
-            console.log(result);                            
+        contactService.addContact(sharedService.contactModel, function (result) {                          
         });
         $state.transitionTo("contact.contacts");
     };

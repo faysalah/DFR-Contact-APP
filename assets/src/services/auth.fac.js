@@ -27,7 +27,6 @@ angular.module('contactapp').factory('authService', ['$http', '$log', function (
             cb(res.data) 
         },
         function (res) {
-            $log.log(res.data.non_field_errors[0]);
             alert(res.data.non_field_errors[0]);
         });
     }

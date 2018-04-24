@@ -1,7 +1,7 @@
 (function () {
-    angular.module('contactapp').directive('onlyNumberInput', onlyLettersInput);
+    angular.module('contactapp').directive('onlyNumberInput', onlyNumberInput);
 
-    function onlyLettersInput() {
+    function onlyNumberInput() {
         return {
             require: 'ngModel',
             link: function (scope, element, attr, ngModelCtrl) {
